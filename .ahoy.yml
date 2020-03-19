@@ -1,0 +1,6 @@
+ahoyapi: v2
+commands:
+  artisan:
+    usage: use artisan.
+    cmd: |
+      ddev exec php artisan $@
