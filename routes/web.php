@@ -35,3 +35,7 @@ Route::get('hello/{wildcard}', function ($wildcard) {
 // Routing a Controller
 Route::get('hello', 'HelloController@helloGet');
 Route::get('hello/{wildcard}', 'HelloController@helloWildcard');
+
+
+Route::get('assignments', 'AssignmentController@index');
+Route::get('assignments/{assignment}', 'AssignmentController@show');
