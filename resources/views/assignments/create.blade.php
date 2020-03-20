@@ -24,18 +24,20 @@
                 </div>
             </div>
 
-            <!-- Checkbox -->
-{{--            <div class="form-group">--}}
-{{--                <label class="col-md-4 control-label" for="checkbox"></label>--}}
-{{--                <div class="col-md-4">--}}
-{{--                    <div class="checkbox">--}}
-{{--                        <label for="checkbox-0">--}}
-{{--                            <input type="checkbox" name="completed" id="checkbox-0" value="1">--}}
-{{--                            Completed--}}
-{{--                        </label>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
+            <!-- Tag -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="tags[]">Due date</label>
+                <div class="col-md-4">
+                    <select class="form-control" name="tags[]" multiple>
+                        @foreach($tags as $tag)
+                            <option value="{{$tag->id}}">{{$tag->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+            </div>
+
+
 
             <!-- Datepicker -->
             <div class="form-group">
@@ -49,7 +51,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="due_date">Due date</label>
                 <div class="col-md-4">
-                    <button type="submit">Submit</button>
+                    <button class="btn" type="submit">Submit</button>
                 </div>
             </div>
 

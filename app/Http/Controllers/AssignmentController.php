@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Assignment;
+use App\Tag;
 use Illuminate\Http\Request;
 
 class AssignmentController extends Controller
@@ -19,33 +20,44 @@ class AssignmentController extends Controller
     }
 
     public function create() {
-        return view('assignments.create');
+        return view('assignments.create',[
+            'tags' => Tag::all()
+        ]);
     }
 
     public function store() {
-
         request()->validate([
-            'body' => 'required'
+            'body' => 'required',
+            'tags' => 'exists:tags,id'
         ]);
 
-        Assignment::create([
+        $assignment = new Assignment([
            'body' => request('body'),
-            'due_date' => request('due_date'),
+           'due_date' => request('due_date'),
         ]);
+        // Fake user.
+        $assignment->user_id = mt_rand(1,20);
+        $assignment->save();
 
-        return redirect('/assignments');
+        $assignment->tags()->attach(request('tags'));
+
+        return redirect(route('assignments.index'));
 
     }
 
     public function edit(Assignment $assignment)
     {
-        return view('assignments.edit', ['assignment' => $assignment]);
+        return view('assignments.edit', [
+            'assignment' => $assignment,
+            'tags' => Tag::all()
+        ]);
     }
 
     public function update(Assignment $assignment) {
 
         request()->validate([
-            'body' => 'required'
+            'body' => 'required',
+            'tags' => 'exists:tags,id'
         ]);
 
         $assignment->complete([
@@ -53,7 +65,9 @@ class AssignmentController extends Controller
             'due_date' => request('due_date'),
         ], (bool)request('completed_at'));
 
-        return redirect("/assignments/{$assignment->id}");
+        $assignment->tags()->attach(request('tags'));
+
+        return redirect(route('assignments.show', $assignment));
 
     }
 }

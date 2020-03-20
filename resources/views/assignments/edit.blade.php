@@ -46,6 +46,19 @@
                 </div>
             </div>
 
+            <!-- Tag -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="tags[]">Due date</label>
+                <div class="col-md-4">
+                    <select class="form-control" name="tags[]" multiple>
+                        @foreach($tags as $tag)
+                            <option value="{{$tag->id}}">{{$tag->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+            </div>
+
             <!-- Datepicker -->
             <div class="form-group">
                 <label class="col-md-4 control-label" for="due_date">Due date</label>
@@ -58,7 +71,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="due_date">Due date</label>
                 <div class="col-md-4">
-                    <button type="submit">Submit</button>
+                    <button class="btn" type="submit">Submit</button>
                 </div>
             </div>
 
