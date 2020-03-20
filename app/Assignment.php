@@ -31,4 +31,9 @@ class Assignment extends Model
     {
         return route('assignments.show', $this);
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
