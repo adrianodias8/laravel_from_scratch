@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <form class="form-horizontal" method="post" action="/assignments">
+    <form class="form-horizontal" method="post" action="{{ route('assignments.index') }}">
         @csrf
 
         <fieldset>

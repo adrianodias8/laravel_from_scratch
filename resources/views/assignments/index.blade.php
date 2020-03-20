@@ -11,11 +11,11 @@
 
 @section('content')
     <ul style="text-align: left">
-        <li><a href="/assignments/create">Create</a></li>
+        <li><a href="{{ route('assignments.create') }}">Create</a></li>
     </ul>
     @foreach($assignments as $assignment)
         <div class="assignment assignmet-{{$assignment->id}}">
-            <a href="/assignments/{{$assignment->id}}">
+            <a href="{{ $assignment->path() }}">
                 <div class="assignment-body">
                     <span><strong>Assignment: </strong></span> {{ Str::limit( $assignment->body, 10) }}
                 </div>

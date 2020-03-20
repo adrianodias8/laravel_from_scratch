@@ -51,7 +51,7 @@ class AssignmentController extends Controller
         $assignment->complete([
             'body' => request('body'),
             'due_date' => request('due_date'),
-        ],request('completed_at'));
+        ], (bool)request('completed_at'));
 
         return redirect("/assignments/{$assignment->id}");
 

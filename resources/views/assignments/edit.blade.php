@@ -6,9 +6,9 @@
 
 @section('content')
     <ul style="text-align: left">
-        <li><a href="/assignments/{{ $assignment->id }}">Back</a></li>
+        <li><a href="{{ $assignment->path() }}">Back</a></li>
     </ul>
-    <form class="form-horizontal" method="post" action="/assignments/{{ $assignment->id }}">
+    <form class="form-horizontal" method="post" action="{{ $assignment->path() }}">
         @csrf
         @method('PUT')
 

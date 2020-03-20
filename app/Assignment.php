@@ -26,4 +26,9 @@ class Assignment extends Model
         $this->due_date = $due_date->format('Y-m-d H:i:s');
         $this->save();
     }
+
+    public function path()
+    {
+        return route('assignments.show', $this);
+    }
 }

@@ -37,10 +37,10 @@ Route::get('hello', 'HelloController@helloGet');
 Route::get('hello/{wildcard}', 'HelloController@helloWildcard');
 
 
-Route::get('assignments', 'AssignmentController@index');
+Route::get('assignments', 'AssignmentController@index')->name('assignments.index');
 Route::post('assignments', 'AssignmentController@store');
-Route::get('assignments/create', 'AssignmentController@create');
-Route::get('assignments/{assignment}', 'AssignmentController@show');
-Route::get('assignments/{assignment}/edit', 'AssignmentController@edit');
+Route::get('assignments/create', 'AssignmentController@create')->name('assignments.create');
+Route::get('assignments/{assignment}', 'AssignmentController@show')->name('assignments.show');
+Route::get('assignments/{assignment}/edit', 'AssignmentController@edit')->name('assignments.edit');
 Route::put('assignments/{assignment}', 'AssignmentController@update');
 
