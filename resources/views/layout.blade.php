@@ -66,6 +66,8 @@
                 font-size: 30px;
             }
         </style>
+        {{--    Custom head stuff    --}}
+        @yield('head')
     </head>
     <body>
         <div class="flex-center position-ref full-height">

@@ -38,4 +38,9 @@ Route::get('hello/{wildcard}', 'HelloController@helloWildcard');
 
 
 Route::get('assignments', 'AssignmentController@index');
+Route::post('assignments', 'AssignmentController@store');
+Route::get('assignments/create', 'AssignmentController@create');
 Route::get('assignments/{assignment}', 'AssignmentController@show');
+Route::get('assignments/{assignment}/edit', 'AssignmentController@edit');
+Route::put('assignments/{assignment}', 'AssignmentController@update');
+
